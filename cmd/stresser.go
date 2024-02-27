@@ -31,7 +31,7 @@ func Start(url string, totalRequests, concurrency int) RunEFunc {
 				results <- response.StatusCode
 				response.Body.Close()
 			} else {
-				results <- 0
+				results <- response.StatusCode
 			}
 			<-concurrentGoroutines
 		}()
